@@ -8,7 +8,8 @@ private:
 
 public:
     LPF(double alpha, double estimated_value = 0.0);
-    double filter(double input);
+    double GetEstimatedValue() const;
+    double Update(double input);
 };
 
 #endif // LPF_H
