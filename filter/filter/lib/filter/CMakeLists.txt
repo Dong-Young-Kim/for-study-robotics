@@ -3,7 +3,7 @@ file(GLOB_RECURSE SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
 
-add_library(${PROJECT_NAME} ${SOURCES})
+add_library(${PROJECT_NAME} STATIC ${SOURCES})
 
 # add include directories
 target_include_directories(${PROJECT_NAME} PUBLIC 
@@ -14,7 +14,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall)
 
 # compile features
-target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 # add dependencies
 # target_link_libraries(${PROJECT_NAME} PUBLIC
