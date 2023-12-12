@@ -22,9 +22,8 @@ class KalmanFilter:
         self.xpred_ = self.A_ @ self.x_
         self.Ppred_ = self.A_ @ self.P_ @ self.A_.T + self.Q_
         
-
     def Measure(self, z :np.ndarray):
-        self.K_ = self.Ppred_ @ self.H_.T / (self.H_ @ self.Ppred_ @ self.H_.T + self.R_)
+        self.K_ = self.Ppred_ @ self.H_.T @ np.linalg.inv(self.H_ @ self.Ppred_ @ self.H_.T + self.R_)
 
         self.x_ = self.xpred_ + self.K_ @ (z - self.H_ @ self.xpred_)
         self.P_ = self.Ppred_ - self.K_ @ self.H_ @ self.Ppred_
