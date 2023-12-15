@@ -3,8 +3,8 @@ from Kalman import KalmanFilter
 import numpy as np
 import matplotlib.pyplot as plt
 
-def getConstPlusNoise(normal: float, sigma: float):
-    return np.random.normal(normal, sigma, 1)
+def getConstPlusNoise(mean: float, sigma: float):
+    return np.random.normal(mean, sigma, 1)
 
 #################################################
 
